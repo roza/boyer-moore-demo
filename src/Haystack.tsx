@@ -35,7 +35,7 @@ let Haystack = ({haystack, haystackIndex, matchLength, currentCharsMatch}: Hayst
 
     return (
         <samp className="haystack">
-            <span> Haystack: </span>
+            <span> :: Texte :: </span>
             <span>{prefix}</span>
             <span style={currentCharsMatch ? matchStyle : noMatchStyle}>{current}</span>
             <span style={previousMatchStyle}>{alreadyMatched}</span>

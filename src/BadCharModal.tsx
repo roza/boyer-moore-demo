@@ -37,36 +37,36 @@ class BadCharModal extends React.Component<{}, ModalState> {
     }
 
     render() {
-        const needle = "example";
+        const needle = "exemple";
         return (
             <div>
                 <div>
-                    <a href="#" onClick={this.openModal}>Bad Character Table</a>
+                    <a href="#" onClick={this.openModal}>Table du mauvais caractère</a>
                 </div>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
                     style={modalStyle}
-                    contentLabel="Bad Character Rule Explanation"
+                    contentLabel="Règle du mauvais caractère"
                 >
                     <div className="flex-row">
                         <div className="flex-row-item">
-                            <h3>Bad Character Table</h3>
+                            <h3>Table du mauvais caractère</h3>
                         </div>
                         <div className="flex-row-right-item">
-                            <button onClick={this.closeModal}>Close</button>
+                            <button onClick={this.closeModal}>Fermer</button>
                         </div>
                     </div>
                     <div>
                         <p>
-                            The bad character table tells us, given a mismatched
-                            character from the haystack, the shift distance that would
-                            align the rightmost instance of that character in the
-                            needle with the mismatched character in the haystack.
+                            La table du mauvais caractère nous informe, étant donné un caractère ne correspondant 
+                            pas dans le texte, du décalage nécessaire qui permettrait
+                            d'aligner l'occurence la plus à droite de ce caractère dans le motif
+                            avec le caractère ne correspondant pas dans le texte.
                         </p>
                         <p>
-                            For example, if the needle is "example" then the bad
-                            character table is:
+                            Par exemple, si le motif est "exemple" alors la table
+                            du mauvais charactère est :
                         </p>
                         <div>
                             <BadCharTable
@@ -76,12 +76,12 @@ class BadCharModal extends React.Component<{}, ModalState> {
                                 needle={needle} />
                         </div>
                         <p>
-                            If we are comparing the haystack to the needle, and we
-                            find an "m" that does not match the current character
-                            in the needle, then we know that we must shift the
-                            haystack index 3 characters to the right and reset the
-                            needle index to 7 (aligning the "m"s) before the
-                            needle could match the haystack.
+                            Si nous comparons le texte au motif, et que nous trouvons
+                            un "m" qui ne correspond pas au caractère courant dans le
+                            motif, alors nous savons que nous devons décaler l'index
+                            du texte de 3 positions vers la droite et remettre l'index du
+                            motif à sa valeur par défaut soit sa longueur 7 (en alignant les "m"s) 
+                            avant que le motif n'aie une chance de correspondre au texte.
                         </p>
                     </div>
                 </Modal>

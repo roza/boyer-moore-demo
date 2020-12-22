@@ -32,21 +32,21 @@ class SearchForm extends React.Component<SearchFormProps, Readonly<{}>> {
     render(): JSX.Element {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor="haystackInput">Haystack</label>
+                <label htmlFor="haystackInput">Texte</label>
                 <input
                     type="text"
                     placeholder="Here is a simple example."
                     id="haystackInput"
                     ref={(input) => this.haystackInput = input }
                 />
-                <label htmlFor="needleInput">Needle</label>
+                <label htmlFor="needleInput">Motif</label>
                 <input
                     type="text"
                     placeholder="example"
                     id="needleInput"
                     ref={(input) => this.needleInput = input }
                 />
-                <button type="submit" className="button">Search</button>
+                <button type="submit" className="button">Chercher</button>
             </form>
         );
     }

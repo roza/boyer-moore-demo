@@ -41,21 +41,21 @@ class GoodSuffixModal extends React.Component<{}, ModalState> {
 
     render() {
         const haystack = "__angled example"
-        const needle = "example";
+        const needle = "EXEMPLE";
         return (
             <div>
                 <div>
-                    <a href="#" onClick={this.openModal}>Good Suffix Table</a>
+                    <a href="#" onClick={this.openModal}>Table du bon suffixe</a>
                 </div>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
                     style={modalStyle}
-                    contentLabel="Good Suffix Rule Explanation"
+                    contentLabel="La règle du bon suffixe"
                 >
                     <div className="flex-row">
                         <div className="flex-row-item">
-                            <h3>Good Suffix Table</h3>
+                            <h3>Table du bon suffixe</h3>
                         </div>
                         <div className="flex-row-right-item">
                             <button onClick={this.closeModal}>Close</button>

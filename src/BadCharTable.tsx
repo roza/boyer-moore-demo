@@ -11,7 +11,7 @@ let BadCharTable = ({ruleTable, logEntry, haystack, needle}: RuleTableProps<BadC
     let needleSet = new Set(needle.split(""));
     // Add a dummy element that is not in the needle array to show the shift
     // amount for characters not in the needle.
-    needleSet.add("other");
+    needleSet.add("autres");
 
     let highlightChar = "";
     if (logEntry && logEntry.action === SearchAction.SHIFT) {
@@ -19,7 +19,7 @@ let BadCharTable = ({ruleTable, logEntry, haystack, needle}: RuleTableProps<BadC
         if (needleSet.has(haystackChar)) {
             highlightChar = haystackChar;
         } else {
-            highlightChar = "other";
+            highlightChar = "autresr";
         }
     }
 

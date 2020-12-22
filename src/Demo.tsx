@@ -12,8 +12,8 @@ class SearchDemo extends React.Component<{}, SearchData> {
     }
 
     componentWillMount() {
-        const haystack = "Here is a simple example.";
-        const needle = "example";
+        const haystack = "VOICI UN SIMPLE EXEMPLE.";
+        const needle = "EXEMPLE";
         this.handleHaystackAndNeedleSubmit(haystack, needle);
     }
 

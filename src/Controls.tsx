@@ -38,10 +38,10 @@ class Controls extends React.Component<ControlsProps, Readonly<{}>> {
         return (
             <div className="flex-row">
                 <div style={{marginTop: 0, marginBottom: 0, marginLeft: "1em", marginRight: 0}}>
-                    <button type="submit" className="button button-outline" onClick={this.props.onPrevious}>Previous Step</button>
+                    <button type="submit" className="button button-outline" onClick={this.props.onPrevious}>Précédent</button>
                 </div>
                 <div className="flex-row-item">
-                    <button type="submit" className="button" onClick={this.props.onNext}>Next Step</button>
+                    <button type="submit" className="button" onClick={this.props.onNext}>Suivant</button>
                 </div>
                 <div className="flex-row-right-item">
                     <button type="submit" className="button button-outline" onClick={this.props.onReset}>Reset</button>

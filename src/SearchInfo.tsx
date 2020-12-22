@@ -16,13 +16,13 @@ let SearchInfo = ({logEntry, haystack, needle}: SearchInfoProps): JSX.Element =>
     return (
         <div className="flex-row flex-wrap">
             <div className="flex-row-item">
-                Haystack index: {haystackIndex}/{haystack.length - 1}
+                index du texte : {haystackIndex}/{haystack.length - 1}
             </div>
             <div className="flex-row-item">
-                Needle index: {needleIndex}/{needle.length - 1}
+                index du motif : {needleIndex}/{needle.length - 1}
             </div>
             <div className="flex-row-item">
-                Total Comparisons: {comparisons}
+                Comparaisons totales : {comparisons}
             </div>
         </div>
     );

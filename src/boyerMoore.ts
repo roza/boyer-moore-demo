@@ -65,8 +65,10 @@ export function search(needle: string, haystack: string): SearchResult {
         } else {
             comparisons++;
             var badCharShift = badCharTable(haystack.charAt(haystackIndex));
-            var goodSuffixShift = goodSuffixTable[needleIndex];
-            var shift = Math.max(badCharShift, goodSuffixShift);
+            //var goodSuffixShift = goodSuffixTable[needleIndex];
+            // on désactive la règle du Bon suffixe ici
+            var shift = Math.max(badCharShift, 1);
+            //var shift = Math.max(badCharShift, goodSuffixShift);
 
             log.push({
                 comparisons: comparisons,

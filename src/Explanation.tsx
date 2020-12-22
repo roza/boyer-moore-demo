@@ -18,8 +18,8 @@ export interface ExplanationProps {
 function match(): JSX.Element {
     return (
         <p>
-            The pattern index is less than 0, so the pattern was found in the
-            text.
+            L'index du motif (pattern) est négatif, ce qui indique que le motif a été trouvé dans le
+            texte.
         </p>
     );
 }
@@ -27,8 +27,8 @@ function match(): JSX.Element {
 function noMatch(): JSX.Element {
     return (
         <p>
-            The text index is greater than or equal to the text length, so the
-            pattern was not found in the text.
+            L'index du motif (pattern) est plus grand ou égal à la taille du texte, ce qui indique que le motif n'a pas été trouvé 
+            dans le texte.
         </p>
     );
 }
@@ -36,8 +36,8 @@ function noMatch(): JSX.Element {
 function galilRuleMatch(): JSX.Element {
     return (
         <p>
-            Because of the Galil Rule, the rest of the pattern will match, so
-            the pattern is in the text.
+            Du fait de la "Galil Rule" (cas d'un motif périodique), le reste du motif va convenir
+            et le motif figure bien dans le texte.
         </p>
     );
 }
@@ -45,8 +45,8 @@ function galilRuleMatch(): JSX.Element {
 function compareEqual(): JSX.Element {
     return (
         <p>
-            The current character in the text and pattern match. We decrement
-            the text and pattern indices to compare the next characters.
+            Les caratères courants du texte et du motif correspondent. Nous décrémentons
+            les indices du texte et du motif pour comparer les caractères suivants.
         </p>
     );
 }
@@ -55,28 +55,29 @@ function shiftRule({logEntry, haystack, needle, badCharTable, goodSuffixTable}: 
     const needleIndex = logEntry.needleIndex;
     const haystackChar = haystack.charAt(logEntry.haystackIndex);
     const badCharShift = badCharTable(haystackChar);
-    const goodSuffixShift = goodSuffixTable[needleIndex];
+    //const goodSuffixShift = goodSuffixTable[needleIndex];
+    // désactivation GoodSuffix
+    const goodSuffixShift = 1;
     const shift = badCharShift >= goodSuffixShift ? badCharShift : goodSuffixShift;
     const comparison = badCharShift >= goodSuffixShift ? ">=" : "<";
-    const chosen = badCharShift > goodSuffixShift ? "bad character" : "good suffix";
+    const chosen = badCharShift > goodSuffixShift ? "mauvais caractère" : "bon suffixe";
 
     return (
         <div>
             <p>
-                The current character in the text and pattern do not match.
-                We look up the mismatched character from the text in the bad
-                character table, and the current pattern index in the good
-                suffix table.
+                Les caratères courants du texte et du motif ne correspondent pas.
+                On cherche ensuite le caractère du texte qui ne convient pas dans la table du mauvais caractère
+                ainsi que l'index courant du motif (pattern index) dans la table des bons suffixes.
             </p>
             <div>badCharTable['{haystackChar}'] = {badCharShift}</div>
             <div>goodSuffixTable[{needleIndex}] = {goodSuffixShift}</div>
             <p>
-               Since {badCharShift} {comparison} {goodSuffixShift} we use
-               the {chosen} rule and increase the text index by {shift}.
+               Puisque {badCharShift} {comparison} {goodSuffixShift} nous retenons
+               la règle {chosen} et augmentons l'index du texte de {shift}.
             </p>
             { needleIndex == needle.length - 1
                 ? undefined
-                : <p>We also reset the pattern index to {needle.length - 1}.</p>
+                : <p>Nous réaffectons l'index du motif (pattern index) à {needle.length - 1}.</p>
             }
         </div>
     );

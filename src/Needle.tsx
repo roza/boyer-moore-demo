@@ -35,7 +35,7 @@ let Needle = ({needle, haystackIndex, matchLength, currentCharsMatch}: NeedlePro
 
     return (
         <samp className="needle">
-            <span> Needle:   </span>
+            <span> : Motif :   </span>
             <span>{prefix}</span>
             <span style={currentCharsMatch ? matchStyle : noMatchStyle}>{current}</span>
             <span style={previousMatchStyle}>{alreadyMatched}</span>
