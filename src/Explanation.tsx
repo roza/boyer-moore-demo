@@ -57,6 +57,7 @@ function shiftRule({logEntry, haystack, needle, badCharTable, goodSuffixTable}: 
     const badCharShift = badCharTable(haystackChar);
     //const goodSuffixShift = goodSuffixTable[needleIndex];
     // désactivation GoodSuffix
+    const index = logEntry.haystackIndex;
     const goodSuffixShift = 1;
     const shift = badCharShift >= goodSuffixShift ? badCharShift : goodSuffixShift;
     const comparison = badCharShift >= goodSuffixShift ? ">=" : "<";
@@ -72,8 +73,11 @@ function shiftRule({logEntry, haystack, needle, badCharTable, goodSuffixTable}: 
             <div>badCharTable['{haystackChar}'] = {badCharShift}</div>
             <div>goodSuffixTable[{needleIndex}] = {goodSuffixShift}</div>
             <p>
-               Puisque {badCharShift} {comparison} {goodSuffixShift} nous retenons
-               la règle {chosen} et augmentons l'index du texte de {shift}.
+               Puisque {badCharShift} {comparison} {goodSuffixShift} nous devrions retenir
+               la règle {chosen} et augmenter l'index du texte de {shift}.
+               Mais la règle du bon suffixe étant désactivée, nous appliquons uniquement
+               celle du mauvais caractère et faisons passer l'index du texte de {index}
+                &nbsp; à {index + shift}.
             </p>
             { needleIndex == needle.length - 1
                 ? undefined
