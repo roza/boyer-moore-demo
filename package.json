@@ -2,13 +2,16 @@
   "name": "boyer-moore-demo",
   "version": "1.0.0",
   "description": "Interactive demonstration of the Boyer-Moore string search algorithm.",
+  "homepage": "http://roza.github.io/boyer-moore-demo",
   "main": "boyerMoore.js",
   "scripts": {
     "dev-server": "webpack-dev-server --content-base build",
     "test": "jasmine-ts",
     "tsc": "tsc",
     "webpack": "webpack --config webpack.config.js",
-    "webpack-production": "set NODE_ENV=production && webpack -p --config ./webpack-production.config.js"
+    "webpack-production": "set NODE_ENV=production && webpack -p --config ./webpack-production.config.js",
+    "predeploy": "npm run webpack",
+    "deploy": "gh-pages -d build"
   },
   "author": "Devin Nusbaum",
   "license": "MIT",
@@ -24,6 +27,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "copy-webpack-plugin": "^4.6.0",
+    "gh-pages": "^3.1.0",
     "jasmine": "^2.99.0",
     "jasmine-ts": "^0.2.1",
     "react": "^15.7.0",
